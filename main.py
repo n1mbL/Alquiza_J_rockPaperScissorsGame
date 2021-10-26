@@ -12,6 +12,33 @@ player = False
 playerLives = 5
 computerLives = 5
 
+# defining a win/lose function and invoke it
+# in our game loop when lives run out (player or computer)
+
+
+def winOrLose(status):
+	print("called win or lose! You, " + status + "!")
+	print("gg")
+	print("")
+	print("Would you like to play again?")
+	choice = input(" Y / N? ")
+
+	global playerLives
+	global computerLives
+	global player
+
+	if choice == "n":
+		print("better luck next time!")
+		exit()
+	elif choice == "y":
+		print("lives reset!")
+		playerLives = 5
+		computerLives = 5
+		player = False
+		print("computer lives: " + str(computerLives))
+		print("player lives: " + str(playerLives))
+		print("")
+
 
 # create an infinite loop (for now) so we can keep playing
 while player is False:
@@ -120,26 +147,15 @@ while player is False:
 
 	print("computer lives: " + str(computerLives))
 	print("player lives: " + str(playerLives))
+	print("")
 
 	if playerLives == 0:
-		print("you lost!")
-		print("gg")
-		print("")
-		print("Would you like to play again?")
-		choice = input(" Y / N? ")
+		# call the winOrLose function here
+		winOrLose("lost")
 
-		if choice == "n":
-			print("better luck next time!")
-			exit()
-		elif choice == "y":
-			print("lives reset!")
-			playerLives = 5
-			computerLives = 5
-			player = False
 
 	elif computerLives ==0:
-		print("you won")
-		print("computer: gg")
+		winOrLose("won")
 
 	# this line below deletes the choice the player made in the previous round
 	player = False
