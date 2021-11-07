@@ -2,5 +2,5 @@
 player = False
 
 # add player and computer lives
-playerLives = 5
-computerLives = 5
+playerLives = 3
+computerLives = 3
