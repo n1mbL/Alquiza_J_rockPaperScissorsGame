@@ -7,16 +7,21 @@ from gameComponents import winOrLose, gameVars
 choices = ["rock", "paper", "scissors", "lizard", "Spock", "heal"]
 
 
-# defining a win/lose function and invoke it
-# in our game loop when lives run out (player or computer)
+print("")
+print("player lives: " + str(gameVars.computerLives))
+print("computer lives: " + str(gameVars.playerLives))
+print("'There can only be one.' - The Kurgan")
+print("")	
+
+
 
 
 # create an infinite loop (for now) so we can keep playing
 while gameVars.player is False:
 
-	# save the player as a variable called player
 	# the value of player will be one of the five choices to type (input)
 	
+
 	gameVars.player = input("Choose rock, paper, scissors, lizard, Spock: ")
 	computer = choices[randint(0,4)]
 
@@ -128,9 +133,4 @@ while gameVars.player is False:
 
 
 
-	#for looping!
 
-
-
-	# add a secret heal function that can add 1 new life to the player! :D
-	# may need to check heal later
