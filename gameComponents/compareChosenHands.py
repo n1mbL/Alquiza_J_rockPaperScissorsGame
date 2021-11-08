@@ -1,40 +1,39 @@
-# the compareChosenHands function
+from gameComponents import winOrLose, gameVars
+import main
 
-def compareChosenHands(status):
-	print("called win or lose! You, " + status + "!")
-	print("gg")
-	print("")
-	print("Would you like to play again?")
 
+def compareChosenHands():
+#	gameVars.player = input("Choose rock, paper, scissors, lizard, Spock: ")
+#	computer = choices[randint(0,4)]
 
 	if gameVars.player == "scissors":
-	if computer == "paper":
-		print ("player wins!")
-		gameVars.computerLives = gameVars.computerLives -1
-	elif computer == "lizard":
-		print ("player wins!")
-		gameVars.computerLives = gameVars.computerLives -1		
-	elif computer == "rock":
-		print ("player loses!")
-		gameVars.playerLives = gameVars.playerLives -1		
-	elif computer == "Spock":
-		print ("player loses!")
-		gameVars.playerLives = gameVars.playerLives -1		
-	else:
-		print ("It's a tie!")
+		if main.computer == "paper":
+			print ("player wins!")
+			gameVars.computerLives = gameVars.computerLives -1
+		elif main.computer == "lizard":
+			print ("player wins!")
+			gameVars.computerLives = gameVars.computerLives -1		
+		elif main.computer == "rock":
+			print ("player loses!")
+			gameVars.playerLives = gameVars.playerLives -1		
+		elif main.computer == "Spock":
+			print ("player loses!")
+			gameVars.playerLives = gameVars.playerLives -1		
+		else:
+			print ("It's a tie!")
 
 
 	if gameVars.player == "paper":
-		if computer == "rock":
+		if main.computer == "rock":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "Spock":
+		elif main.computer == "Spock":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "lizard":
+		elif main.computer == "lizard":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
-		elif computer == "scissors":
+		elif main.computer == "scissors":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
 		else:
@@ -42,16 +41,16 @@ def compareChosenHands(status):
 
 
 	if gameVars.player == "rock":
-		if computer == "lizard":
+		if main.computer == "lizard":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "scissors":
+		elif main.computer == "scissors":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "Spock":
+		elif main.computer == "Spock":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
-		elif computer == "paper":
+		elif main.computer == "paper":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
 		else:
@@ -59,16 +58,16 @@ def compareChosenHands(status):
 
 
 	if gameVars.player == "lizard":
-		if computer == "Spock":
+		if main.computer == "Spock":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "paper":
+		elif main.computer == "paper":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "scissors":
+		elif main.computer == "scissors":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
-		elif computer == "rock":
+		elif main.computer == "rock":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
 		else:
@@ -76,16 +75,16 @@ def compareChosenHands(status):
 
 
 	if gameVars.player == "Spock":
-		if computer == "scissors":
+		if main.computer == "scissors":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "rock":
+		elif main.computer == "rock":
 			print ("player wins!")
 			gameVars.computerLives = gameVars.computerLives -1		
-		elif computer == "paper":
+		elif main.computer == "paper":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
-		elif computer == "lizard":
+		elif main.computer == "lizard":
 			print ("player loses!")
 			gameVars.playerLives = gameVars.playerLives -1		
 		else:
@@ -95,6 +94,19 @@ def compareChosenHands(status):
 		gameVars.playerLives = gameVars.playerLives + 1
 		print("Player got healed! ")
 
+
+	# Nov.09 - was showing extra lines of the lives
 	print("computer lives: " + str(gameVars.computerLives))
 	print("player lives: " + str(gameVars.playerLives))
 	print("")
+
+	if gameVars.playerLives == 0:
+		# call the winOrLose function here
+		winOrLose.winOrLose("lost")
+
+
+	elif gameVars.computerLives ==0:
+		winOrLose.winOrLose("won")
+
+	# this line below deletes the choice the player made in the previous round
+	gameVars.player = False
