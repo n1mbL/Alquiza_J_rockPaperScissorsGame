@@ -14,8 +14,6 @@ print("'There can only be one.' - The Kurgan")
 print("")	
 
 
-
-
 # create an infinite loop (for now) so we can keep playing
 while gameVars.player is False:
 
